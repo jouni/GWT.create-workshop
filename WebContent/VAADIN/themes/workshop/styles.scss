@@ -1,0 +1,46 @@
+@import "../chameleon/legacy-styles.css";
+
+$menu_selected: #1180d4;
+
+.top {
+  background: #ccc;
+  background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
+  padding: 0 1em .3em; 
+  border-bottom: 1px solid #c5c5c5;
+  
+  .h1 {
+    line-height: 1;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+  }
+}
+
+.menu {
+  background: #ddd;
+  width: 200px;
+  border-right: 1px solid #c5c5c5;
+  
+  .v-button {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    
+    &.selected {
+      background: #1180d4;
+      color: #fff;
+      text-shadow: 0 -1px 1px lighten(#1180d4, -20%);
+      font-weight: bold;
+    }
+  }
+  
+  .v-button-wrap {
+    text-align: left;
+    font-size: 15px;
+    line-height: 30px;
+    border-radius: 0;
+  }
+}
+
+.content.content {
+  padding: 30px;
+}
