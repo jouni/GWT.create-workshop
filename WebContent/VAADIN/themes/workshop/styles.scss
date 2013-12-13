@@ -1,6 +1,29 @@
 @import "../chameleon/legacy-styles.css";
 @import "icons";
 
+
+$menu-width: 200px;
+
+
+@mixin box-shadow($shadow, $shadow2) {
+  -webkit-box-shadow: $shadow, $shadow2;
+  -moz-box-shadow: $shadow, $shadow2;
+  box-shadow: $shadow, $shadow2;
+}
+
+
+html,
+.v-generated-body,
+.v-app,
+.v-ui {
+  height: auto !important;
+}
+
+.v-generated-body {
+  overflow: visible;
+}
+
+
 .v-widget,
 .v-caption,
 .v-app input {
@@ -27,8 +50,11 @@
 
 .menu {
   background: #ddd;
-  width: 200px;
+  width: $menu-width;
   border-right: 1px solid #c5c5c5;
+  position: absolute;
+  z-index: 2;
+  transition: left 300ms;
   
   .v-button {
     width: 100%;
@@ -36,10 +62,17 @@
     border: none;
     
     &.selected {
-      background: #1180d4;
-      color: #fff;
-      text-shadow: 0 -1px 1px lighten(#1180d4, -20%);
-      font-weight: bold;
+      position: relative;
+      
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0,0,0,.3);
+      }
     }
   }
   
@@ -51,10 +84,104 @@
   }
 }
 
-.content.content {
-  padding: 30px;
+.v-app .content {
+  padding: 30px 30px 30px 230px;
   
   .h2 {
     font-size: 30px;
   }
 }
+
+
+
+
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  .menu {
+    width: 60px;
+    
+    .v-button-wrap {
+      font-size: 20px;
+      text-align: center;
+      
+      &:before {
+        margin: 0;
+      }
+    }
+    
+    .v-button-caption {
+      display: none;
+    }
+  }
+  
+  .v-app .content {
+    padding-left: 90px;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 480px) {
+  .top {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    padding-left: 60px;
+  }
+  
+  .menu {
+    left: -200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    
+    &:before {
+      content: "";
+      width: 26px;
+      height: 4px;
+      background: #000;
+      position: absolute;
+      top: 16px;
+      right: -40px;
+      @include box-shadow(0 8px 0 #000, 0 16px 0 #000);
+    }
+    
+    &:hover,
+    &:focus {
+      left: 0;
+    }
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -50px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  .v-app .content {
+    padding-left: 30px;
+    padding-top: 80px;
+  }
+  
+}
+
+
+.form[width-range~="0px-480px"] {
+  
+  .v-formlayout-row {
+    display: block;
+  }
+  
+  .v-formlayout-captioncell,
+  .v-formlayout-errorcell {
+    display: inline-block;
+  }
+  
+  .v-formlayout-contentcell {
+    display: block;
+  }
+}
+
