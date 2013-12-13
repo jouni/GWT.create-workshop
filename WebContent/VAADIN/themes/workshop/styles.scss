@@ -1,6 +1,11 @@
 @import "../chameleon/legacy-styles.css";
+@import "icons";
 
-$menu_selected: #1180d4;
+.v-widget,
+.v-caption,
+.v-app input {
+  font-size: 16px;
+}
 
 .top {
   background: #ccc;

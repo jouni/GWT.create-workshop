@@ -51,16 +51,16 @@ public class WorkshopExampleUI extends UI {
 
         Button section = new Button("Start");
         menu.addComponent(section);
-        section.addStyleName("start");
+        section.addStyleName("icon-home");
         section.addStyleName("selected");
 
-        section = new Button("Admin");
+        section = new Button("Projects");
         menu.addComponent(section);
-        section.addStyleName("admin");
+        section.addStyleName("icon-folder-open");
 
         section = new Button("Settings");
         menu.addComponent(section);
-        section.addStyleName("settings");
+        section.addStyleName("icon-cog");
 
         VerticalLayout content = new VerticalLayout();
         menuAndContent.addComponent(content);
@@ -85,15 +85,19 @@ public class WorkshopExampleUI extends UI {
 
         TextField firstname = new TextField("First name");
         form.addComponent(firstname);
+        firstname.setWidth("20em");
 
         TextField lastname = new TextField("Last name");
         form.addComponent(lastname);
+        lastname.setWidth("20em");
 
         TextField email = new TextField("Email");
         form.addComponent(email);
+        email.setWidth("20em");
 
         Button submit = new Button("Submit");
         form.addComponent(submit);
+
     }
 
 }
