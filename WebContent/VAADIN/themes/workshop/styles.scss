@@ -7,6 +7,12 @@
   font-size: 16px;
 }
 
+.h1,
+.h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+}
+
 .top {
   background: #ccc;
   background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
@@ -15,8 +21,7 @@
   
   .h1 {
     line-height: 1;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-weight: 300;
+    font-size: 20px;
   }
 }
 
@@ -48,4 +53,8 @@
 
 .content.content {
   padding: 30px;
+  
+  .h2 {
+    font-size: 30px;
+  }
 }
