@@ -1,1 +1,0 @@
-$wnd.com_example_workshop_widgetset_Workshop_exampleWidgetset.runAsyncCallback1('$Gb(2704,1,TEf);_.nc=function r4d(){Vlc((!Qlc&&(Qlc=new Xlc),Qlc),this.b.e)};RFf(Dj)(1);\n//# sourceURL=com.example.workshop.widgetset.Workshop_exampleWidgetset-1.js\n')
