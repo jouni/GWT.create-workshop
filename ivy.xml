@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE ivy-module [
-	<!ENTITY vaadin.version "7.2-SNAPSHOT">
+	<!ENTITY vaadin.version "7.1.9">
 ]>
 <ivy-module version="2.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -40,8 +40,8 @@
 		<!-- Compiler for custom widget sets. Should not be deployed -->
 		<dependency org="com.vaadin" name="vaadin-client-compiler"
 			rev="&vaadin.version;" conf="widgetset-compile->default" />
-
-		<dependency org="com.vaadin.addon.responsive" name="responsive"
-			rev="1.0.0.alpha4" />
+			
+		<dependency org="com.vaadin.addon.responsive" name="responsive" rev="1.0.0.alpha4" />
+			
 	</dependencies>
 </ivy-module>

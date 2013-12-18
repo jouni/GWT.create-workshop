@@ -2,15 +2,13 @@ package com.example.workshop;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.vaadin.addon.responsive.Responsive;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
@@ -21,8 +19,8 @@ import com.vaadin.ui.VerticalLayout;
 public class WorkshopExampleUI extends UI {
 
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = WorkshopExampleUI.class)
-    public static class Servlet extends VaadinServlet {
+    @VaadinServletConfiguration(productionMode = false, ui = WorkshopExampleUI.class, widgetset = "com.example.workshop.widgetset.Workshop_exampleWidgetset")
+    public static class Servlet extends MyVaadinServlet {
     }
 
     @Override
@@ -40,12 +38,8 @@ public class WorkshopExampleUI extends UI {
         topbar.addComponent(title);
         title.addStyleName("h1");
 
-        HorizontalLayout menuAndContent = new HorizontalLayout();
-        root.addComponent(menuAndContent);
-        menuAndContent.setWidth("100%");
-
         VerticalLayout menu = new VerticalLayout();
-        menuAndContent.addComponent(menu);
+        root.addComponent(menu);
         menu.setSizeUndefined();
         menu.addStyleName("menu");
 
@@ -63,8 +57,7 @@ public class WorkshopExampleUI extends UI {
         section.addStyleName("icon-cog");
 
         VerticalLayout content = new VerticalLayout();
-        menuAndContent.addComponent(content);
-        menuAndContent.setExpandRatio(content, 1);
+        root.addComponent(content);
         content.addStyleName("content");
         content.setSpacing(true);
         content.setMargin(true);
@@ -74,26 +67,23 @@ public class WorkshopExampleUI extends UI {
         header.addStyleName("h2");
 
         Label text = new Label(
-                "<p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit.</p>",
-                ContentMode.HTML);
+                "Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit.");
         content.addComponent(text);
 
         FormLayout form = new FormLayout();
+        new Responsive(form);
         content.addComponent(form);
         form.addStyleName("form");
         form.setSpacing(true);
 
         TextField firstname = new TextField("First name");
         form.addComponent(firstname);
-        firstname.setWidth("20em");
 
         TextField lastname = new TextField("Last name");
         form.addComponent(lastname);
-        lastname.setWidth("20em");
 
         TextField email = new TextField("Email");
         form.addComponent(email);
-        email.setWidth("20em");
 
         Button submit = new Button("Submit");
         form.addComponent(submit);
